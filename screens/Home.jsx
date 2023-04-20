@@ -10,9 +10,6 @@ export const Home = () => {
                 <Text style={{fontSize: 40, fontWeight: "bold", color: "white", textAlign: 'center'}}>QR SCANNER</Text> 
                 <Text style={{fontSize: 20, color: "white", textAlign: 'center'}}> Vítejte v naší aplikaci pro skenování QR kódů!</Text> 
             </View>
-            {/* <View style={{backgroundColor: "rgba(255,255,255,0.4)", padding: 10, borderRadius: 10}}>
-            <Text style={{fontSize: 22, color: "black", textAlign: 'center',  padding: 10, borderRadius: 10}}></Text>
-            </View> */}
         </ImageBackground>
     );
 }

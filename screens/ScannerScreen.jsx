@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -19,7 +19,7 @@ const ScannerScreen = () => {
     setScanned(true);
     setLastScannedData(data);
     await AsyncStorage.setItem('lastScannedData', data);
-    alert(`Čárový kód ${type} s daty ${data} byl úspěšně naskenován a uložen!`);
+    alert(`Čárový kód byl úspěšně naskenován a uložen!`);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const ScannerScreen = () => {
       />
       {scanned && <Button title={'Začít scanovat'} onPress={() => setScanned(false)} />}
       <View style={{justifyContent: 'space-between', backgroundColor: "rgba(255,255,255,0.4)", padding: 8}}>
-      {lastScannedData && <Text>Poslední načtený kód: {lastScannedData}</Text>}
+      {lastScannedData && <Text>Poslední načtený kód: {lastScannedData} <Text style={{color:'blue', textDecorationLine: "underline"}} onPress={() => Linking.openURL(lastScannedData)}>otevřít</Text></Text>}
       </View>
     </View>
   );
